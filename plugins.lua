@@ -7,7 +7,7 @@ local plugins = {
       local dapui = require("dapui")
       dapui.setup()
       dap.listeners.after.event_initialized["dapui_config"] = function ()
-        dapup.open()
+        dapui.open()
       end
       dap.listeners.before.event_terminated["dapui_config"] = function ()
         dapui.close()
@@ -62,5 +62,12 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
+  {
+  'Wansmer/treesj',
+  dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  config = function()
+    require('treesj').setup({--[[ your config ]]})
+  end,
+},
   }
   return plugins
